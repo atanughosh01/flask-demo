@@ -1,25 +1,27 @@
-""" flask app """
+"""Creates local instance of flask app"""
 
-from flask import Flask, render_template
-
-APP_HOST = "127.0.0.1"
-APP_PORT = 5000
-
-app = Flask(__name__)
+from flask import Flask
+from flask import render_template
+from drumroll.routes import blog
+from drumroll.routes import auth
 
 
-@app.route("/", methods=["GET"])
-def home():
-    """ homepage"""
+def create_app():
+    """Create and configure an instance of the Flask application."""
 
-    return render_template("index.html")
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_mapping(SECRET_KEY="dev")
 
+    @app.route("/")
+    def home():
+        return render_template("index.html")
 
-if __name__ == "__main__":
+    @app.route("/hello")
+    def hello():
+        return "Hello, World!"
 
-    app.run(
-        host=APP_HOST,
-        port=APP_PORT,
-        debug=True,
-        load_dotenv=False
-    )
+    # apply the blueprints to the app
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(blog.bp)
+
+    return app

@@ -1,0 +1,7 @@
+include .flaskenv
+include requirements.txt
+include license.md
+graft drumroll/static
+graft drumroll/templates
+graft tests
+global-exclude *.pyc
