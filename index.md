@@ -1,84 +1,66 @@
 # flask-demo
 
-A sample python-flask application
+A sample python-flask drumroll application
 
-## Instructions to run the application locally
+## Instructions to setup and run the application locally
 
- _[ `python --version` should be `>=3` and `<=3.10` ]_
+- `python --version` should be `>=3` and `<=3.10`
 
-1. Clone the repository
-    ```
-    git clone https://github.com/atanughosh01/flask-demo
-    ```
+Download or clone
 
-2. Move to the project directory
-    ```
-    cd ./flask-demo
-    ```
+    # clone the repository
+    $ git clone https://github.com/atanughosh01/flask-demo
+    $ cd flask-demo
 
-3. Create a python virtual environment
-    ```
-    python -m venv venv
-    ```
+Create a virtualenv and activate it
 
-4. Activate the virtual environment
-    ```
-    source ./venv/bin/activate
-    ```
+    $ python3 -m venv venv
+    $ . venv/bin/activate
 
-5. Install the required packages by running
-    ```
-    pip install -U -r requirements.txt
-    ```
+Or on Windows cmd
 
-6. Get executable permissions for read-write access
-    ```
-    chmod +X ./run.sh
-    ```
+    $ py -3 -m venv venv
+    $ venv\Scripts\activate.bat
 
-7. Run the application
-    ```
-    ./run,sh
-    ```
+Or on Windows powershell
 
-8. Open _http://127.0.0.1:5000_ on browser.
+    $ python3 -m venv venv
+    $ & venv\Scripts\Activate.ps1
+
+Install pip requirements
+
+    $ pip install -U -r requirements.txt
 
 
-<!-- ## Welcome to GitHub Pages
+### Run the application
 
-You can use the [editor on GitHub](https://github.com/atanughosh01/flask-demo/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+    $ export FLASK_APP=drumroll
+    $ export FLASK_ENV=development
+    $ flask run
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Or on Windows cmd
 
-### Markdown
+    > set -x FLASK_APP=drumroll
+    > set -x FLASK_ENV=development
+    > flask run
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Or on Windows powershell
 
-```markdown
-Syntax highlighted code block
+    > $env:FLASK_APP = "drumroll"
+    > $env:FLASK_ENV = "development"
+    > flask run
 
-# Header 1
-## Header 2
-### Header 3
+### Alternate way to run the application
 
-- Bulleted
-- List
+Create a `.flaskenv` in the `root` directory with the following content
 
-1. Numbered
-2. List
+    export FLASK_APP=drumroll
+    export FLASK_ENV=development
 
-**Bold** and _Italic_ and `Code` text
+Make sure that `python-dotenv` is installed
+    
+    $ pip install python-dotenv==0.20.0
 
-[Link](url) and ![Image](src)
-```
+Then execute `flask run` on the terminal.
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/atanughosh01/flask-demo/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
- -->
+Open http://127.0.0.1:5000 in a browser.
