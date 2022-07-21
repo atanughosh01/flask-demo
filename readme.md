@@ -50,10 +50,17 @@ Or on Windows powershell
     > $env:FLASK_ENV = "development"
     > flask run
 
-Or just create a `.flaskenv` in the `root` directory with the following contents in it
-    ```
+### Alternate way to run the application
+
+Create a `.flaskenv` in the `root` directory with the following content
+
     export FLASK_APP=drumroll
     export FLASK_ENV=development
-    ```
+
+Make sure that `python-dotenv` is installed
+    
+    $ pip install python-dotenv==0.20.0
+
+Then execute `flask run` on the terminal.
 
 Open http://127.0.0.1:5000 in a browser.
