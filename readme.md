@@ -1,44 +1,66 @@
 # flask-demo
 
-A sample python-flask application
+A sample python-flask drumroll application
 
-## Instructions to run the application locally
+## Instructions to setup and run the application locally
 
- _[ `python --version` should be `>=3` and `<=3.10` ]_
+- `python --version` should be `>=3` and `<=3.10`
 
-1. Clone the repository
-    ```
-    git clone https://github.com/atanughosh01/flask-demo
-    ```
+Download or clone
 
-2. Move to the project directory
-    ```
-    cd ./flask-demo
-    ```
+    # clone the repository
+    $ git clone https://github.com/atanughosh01/flask-demo
+    $ cd flask-demo
 
-3. Create a python virtual environment
-    ```
-    python -m venv venv
-    ```
+Create a virtualenv and activate it
 
-4. Activate the virtual environment
-    ```
-    source ./venv/bin/activate
-    ```
+    $ python3 -m venv venv
+    $ . venv/bin/activate
 
-5. Install the required packages by running
-    ```
-    pip install -U -r requirements.txt
-    ```
+Or on Windows cmd
 
-6. Get executable permissions for read-write access
-    ```
-    chmod +X ./run.sh
-    ```
+    $ py -3 -m venv venv
+    $ venv\Scripts\activate.bat
 
-7. Run the application
-    ```
-    ./run,sh
-    ```
+Or on Windows powershell
 
-8. Open _http://127.0.0.1:5000_ on browser.
+    $ python3 -m venv venv
+    $ & venv\Scripts\Activate.ps1
+
+Install pip requirements
+
+    $ pip install -U -r requirements.txt
+
+
+### Run the application
+
+    $ export FLASK_APP=drumroll
+    $ export FLASK_ENV=development
+    $ flask run
+
+Or on Windows cmd
+
+    > set -x FLASK_APP=drumroll
+    > set -x FLASK_ENV=development
+    > flask run
+
+Or on Windows powershell
+
+    > $env:FLASK_APP = "drumroll"
+    > $env:FLASK_ENV = "development"
+    > flask run
+
+### Alternate way to run the application
+
+Create a `.flaskenv` in the `root` directory with the following content
+
+    export FLASK_APP=drumroll
+    export FLASK_ENV=development
+
+Make sure that `python-dotenv` is installed
+    
+    $ pip install python-dotenv==0.20.0
+
+Then execute `flask run` on the terminal.
+
+Open http://127.0.0.1:5000 in a browser.
