@@ -1,44 +1,59 @@
 # flask-demo
 
-A sample python-flask application
+A sample python-flask drumroll application
 
-## Instructions to run the application locally
+## Instructions to setup and run the application locally
 
- _[ `python --version` should be `>=3` and `<=3.10` ]_
+- `python --version` should be `>=3` and `<=3.10`
 
-1. Clone the repository
+Download or clone
+
+    # clone the repository
+    $ git clone https://github.com/atanughosh01/flask-demo
+    $ cd flask-demo
+
+Create a virtualenv and activate it
+
+    $ python3 -m venv venv
+    $ . venv/bin/activate
+
+Or on Windows cmd
+
+    $ py -3 -m venv venv
+    $ venv\Scripts\activate.bat
+
+Or on Windows powershell
+
+    $ python3 -m venv venv
+    $ & venv\Scripts\Activate.ps1
+
+Install pip requirements
+
+    $ pip install -U -r requirements.txt
+
+
+### Run the application
+
+    $ export FLASK_APP=drumroll
+    $ export FLASK_ENV=development
+    $ flask run
+
+Or on Windows cmd
+
+    > set -x FLASK_APP=drumroll
+    > set -x FLASK_ENV=development
+    > flask run
+
+Or on Windows powershell
+
+    > $env:FLASK_APP = "drumroll"
+    > $env:FLASK_ENV = "development"
+    > flask run
+
+Or just create a `.flaskenv` in the `root` directory with the following contents in it
     ```
-    git clone https://github.com/atanughosh01/flask-demo
+    export FLASK_APP=drumroll
+    export FLASK_ENV=development
     ```
 
-2. Move to the project directory
-    ```
-    cd ./flask-demo
-    ```
-
-3. Create a python virtual environment
-    ```
-    python -m venv venv
-    ```
-
-4. Activate the virtual environment
-    ```
-    source ./venv/bin/activate
-    ```
-
-5. Install the required packages by running
-    ```
-    pip install -U -r requirements.txt
-    ```
-
-6. Get executable permissions for read-write access
-    ```
-    chmod +X ./run.sh
-    ```
-
-7. Run the application
-    ```
-    ./run,sh
-    ```
-
-8. Open _http://127.0.0.1:5000_ on browser.
+Open http://127.0.0.1:5000 in a browser.
